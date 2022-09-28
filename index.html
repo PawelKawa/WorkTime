@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work Schedule</title>
-    <link rel="stylesheet" href="reset.css.css" />
+    <!-- <link rel="stylesheet" href="reset.css" /> -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="aWorkTime">
+    <div class="login">
+      <input type="password" id="password">
+      <button id="in">IN</button>
+      <button id="out" class="hide">OUT</button>
+    </div>
+    <div id="aHide" class="aWorkTime aHide">
       <form action="" class="hourss">
         <div class="aStartTime">
           <label for="hours">Start</label>
@@ -33,7 +38,6 @@
         <div class="aFinishTime">
           <label for="hours">Finish</label>
           <select name="hours" id="aFinishHours">
-            <option value="14">14</option>
             <option value="15">15</option>
             <option value="16">16</option>
             <option value="17">17</option>
@@ -52,11 +56,40 @@
         </div>
         <button type="submit" id="aSaveTime">Save</button>
       </form>
-      <!-- <p> <span id="qwe1"></span></p>
-      <p> <span id="qwe2"></span></p>
-      <p> <span id="qwe"></span></p> -->
     </div>
-
+    <div id="pHide" class="pWorkTime pHide">
+      <form action="" class="hourss">
+        <div class="pStartTime">
+          <label for="hours">Start</label>
+          <select name="hours" id="pStartHours">
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+        <div class="pFinishTime">
+          <label for="hours">Finish</label>
+          <select name="hours" id="pFinishHours">
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+          </select>
+        </div>
+        <button type="submit" id="pSaveTime">Save</button>
+      </form>
+    </div>
     <div class="container">
       <p class="w">WIFE</p>
       <p class="h">HUSBAND</p>
@@ -89,14 +122,9 @@
             <span id="aWorkingTime"></span>
           </div>
           <div class="husband">
-            
+            <span id="pWorkingTime"></span>
           </div>
-          <!-- <button>edit work time</button>
-          <button>add note</button>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo,
-            natus!
-          </p> -->
+
         </fieldset>
       </div>
     </div>
