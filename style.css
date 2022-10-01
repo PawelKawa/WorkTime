@@ -65,12 +65,9 @@ div{
 #aWorkingTime, #pWorkingTime{
     white-space: nowrap;
 }
-.aHide, .pHide{
-    display: none;
+#aSaveTime{
+    background-color: pink;
 }
-.hide{
-    display: none;
-}
-.login{
-    text-align: center;
+#pSaveTime{
+    background-color: royalblue;
 }

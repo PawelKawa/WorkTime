@@ -29,63 +29,34 @@ let totalWorkTime = (startHour, startMinutes, finishHour, finishMinutes) => {
     return finishHour - startHour;
   }
 };
-
-let startTime = (h, min) => {
-  if (min === 30) {
-    return h + 0.5;
-  } else {
-    return h;
-  }
-};
-
-function checkPassword(password) {
-  if (password === 'a') {
-    aHide.classList.remove('aHide');
-    outButton.classList.remove('hide');
-    inButton.classList.add('hide');
-  } else if (password === 'p') {
-    pHide.classList.remove('pHide');
-    outButton.classList.remove('hide');
-    inButton.classList.add('hide');
-  } else {
-    alert('Wrong Password')
-}
-}
-
-function hideIt() {
-  outButton.classList.add('hide');
-  aHide.classList.add('aHide');
-  pHide.classList.add('pHide');
-}
-
+ 
 aSaveButton.addEventListener('click', function (e) {
   e.preventDefault();
   document.getElementById(
     'aWorkingTime'
-  ).textContent = `${aStartHours.value} : ${aStartMinutes.value} - ${aFinishHours.value} : ${aFinishMinutes.value} `;
+  ).textContent = `${aStartHours.value}:00  - ${aFinishHours.value}:30 `;
 
   let width =
     totalWorkTime(
       Number(aStartHours.value),
-      Number(aStartMinutes.value),
+      00,
       Number(aFinishHours.value),
-      Number(aFinishMinutes.value)
-    ) * 4.1666;
-  
+      30
+    ) * 5.555;
+
   document.querySelector('.wife').style.width = width + '%';
 
-  let marginLeft = startTime(Number(aStartHours.value), Number(aStartMinutes.value)) * 4.1666;
+  let marginLeft = (aStartHours.value - 6) * 5.555;
 
   document.querySelector('.wife').style.marginLeft = marginLeft + '%';
 });
 
 pSaveButton.addEventListener('click', function (e) {
-
   e.preventDefault();
 
   document.getElementById(
     'pWorkingTime'
-  ).textContent = `${pStartHours.value} : 00 - ${pFinishHours.value} : 00`;
+  ).textContent = `${pStartHours.value}:00 - ${pFinishHours.value}:00`;
 
   let width =
     totalWorkTime(
@@ -93,24 +64,47 @@ pSaveButton.addEventListener('click', function (e) {
       00,
       Number(pFinishHours.value),
       00
-    ) * 4.1666;
-  
+    ) * 5.555;
+
   document.querySelector('.husband').style.width = width + '%';
 
-  let marginLeft = startTime(Number(pStartHours.value), 00) * 4.1666;
+  let marginLeft = (pStartHours.value - 6) * 5.555;
 
   document.querySelector('.husband').style.marginLeft = marginLeft + '%';
 });
 
 
-inButton.addEventListener('click', function (e) {
+const readButton = document.getElementById('read');
+
+readButton.addEventListener('click', function (e) {
   e.preventDefault();
-  checkPassword(passwordInput.value)
+  console.log('test');
+
 })
 
-outButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  inButton.classList.remove('hide');
-  hideIt();
-  passwordInput.value = '';
+
+$('#read').on('click', function () {
+  console.log('jquery');
 })
+
+
+function getAllUsers(){
+
+  $.ajax({
+      type: 'POST',
+      url: "php/getAll.php",
+      data: {},
+      dataType: 'json',
+      success: function (results) {
+          console.log(results);
+
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+      }
+  })
+};
+
+getAllUsers();

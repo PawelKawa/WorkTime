@@ -9,55 +9,41 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="login">
-      <input type="password" id="password">
-      <button id="in">IN</button>
-      <button id="out" class="hide">OUT</button>
-    </div>
-    <div id="aHide" class="aWorkTime aHide">
+    <button id="read">Read SQL in console</button>
+    <div class="aWorkTime ">
       <form action="" class="hourss">
         <div class="aStartTime">
           <label for="hours">Start</label>
           <select name="hours" id="aStartHours">
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-          </select>
-          <p>:</p>
-          <select name="minutes" id="aStartMinutes">
-            <option value="00">00</option>
-            <option value="30">30</option>
+            <option value="7">7:00</option>
+            <option value="8">8:00</option>
+            <option value="9">9:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
           </select>
         </div>
         <div class="aFinishTime">
           <label for="hours">Finish</label>
           <select name="hours" id="aFinishHours">
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-          </select>
-          <p>:</p>
-          <select name="minutes" id="aFinishMinutes">
-            <option value="00">00</option>
-            <option value="30">30</option>
+            <option value="15">15:30</option>
+            <option value="16">16:30</option>
+            <option value="17">17:30</option>
+            <option value="18">18:30</option>
+            <option value="19">19:30</option>
+            <option value="20">20:30</option>
+            <option value="21">21:30</option>
+            <option value="22">22:30</option>
+            <option value="23">23:30</option>
           </select>
         </div>
         <button type="submit" id="aSaveTime">Save</button>
       </form>
     </div>
-    <div id="pHide" class="pWorkTime pHide">
+    <div class="pWorkTime">
       <form action="" class="hourss">
         <div class="pStartTime">
           <label for="hours">Start</label>
@@ -97,8 +83,6 @@
         <fieldset>
           <legend>26/09/2022 Monday</legend>
           <div class="time">
-            <div class="zero">0</div>
-            <div class="three">3</div>
             <div class="six">6</div>
             <div class="nine">9</div>
             <div class="midday">12</div>
@@ -108,8 +92,6 @@
             <div class="midnight">24</div>
           </div>
           <div class="time">
-            <div class="zero">|</div>
-            <div class="three">|</div>
             <div class="six">|</div>
             <div class="nine">|</div>
             <div class="midday">|</div>
@@ -128,6 +110,10 @@
         </fieldset>
       </div>
     </div>
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
     <script src="./script.js"></script>
   </body>
 </html>
