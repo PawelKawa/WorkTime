@@ -1,73 +1,45 @@
 html{
-    font-size: 10px;
+    font-size: 20px;
 }
 body {
     background-color: #ccc;
 }
 .container{
-    /* border: solid red 1px; */
-    width: 360px;
     margin: auto;
 }
 
-td {
-    border: solid black 1px;
-}
-legend{
-    font-size: 2rem;
-}
-div{
-    font-size: 1.5rem;
-}
 .wife{
-    /* height: 30px; */
     background-color: pink;
-    text-align: center;
-    font-size: 2rem;
 }
 
 .husband{
-    /* height: 30px; */
     background-color: royalblue;
-    text-align: center;
-    font-size: 2rem;
 }
 
-.w{
-    background-color: pink;
-    /* width: 360px; */
-    margin: 1rem auto ;
-    font-size: 2rem;
+.wife, .husband, .tac{
     text-align: center;
 }
-.h{
-    background-color: royalblue;
-    /* width: 360px; */
-    margin: 1rem auto;
-    font-size: 2rem;
-    text-align: center;
-}
+
 .time{
     display: flex;
     justify-content: space-between;
-    /* margin: 0.2rem; */
 }
 
-.aStartTime, .aFinishTime{
-    display: flex;
-}
-.hourss label{
-    font-size: 2rem;
-}
-.hourss p{
-    padding: 0 0.3rem;
-}
 #aWorkingTime, #pWorkingTime{
     white-space: nowrap;
 }
-#aSaveTime{
-    background-color: pink;
+
+table td{
+    border: 1px solid black;
 }
-#pSaveTime{
-    background-color: royalblue;
+
+.none{
+    display: none;
+}
+.tac{
+    margin: 0 auto;
+}
+
+.asd{
+    background-color: red;
 }
