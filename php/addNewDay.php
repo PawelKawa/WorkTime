@@ -27,7 +27,7 @@
 	$query = $conn->prepare('INSERT INTO worktime (date, wStart, wEnd, hStart, hEnd, note) 
 	VALUES(?,?,?,?,?,?)');
 
-	$query->bind_param("siiiis", $_POST['date'], $_POST['wStart'], $_POST['wEnd'], $_POST['hStart'], $_POST['hEnd'], $_POST['note']);
+	$query->bind_param("ssssss", $_POST['date'], $_POST['wStart'], $_POST['wEnd'], $_POST['hStart'], $_POST['hEnd'], $_POST['note']);
 
 	$query->execute();
 	

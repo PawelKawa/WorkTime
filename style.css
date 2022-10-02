@@ -5,41 +5,69 @@ body {
     background-color: #ccc;
 }
 .container{
-    margin: auto;
+    margin:0 auto;
+    width: 300px;
 }
 
-.wife{
-    background-color: pink;
+.userInterface{
+    background-color: goldenrod;
+    box-shadow: 5px 5px #aaa;
+    border-radius: 5px;
 }
 
-.husband{
-    background-color: royalblue;
-}
-
-.wife, .husband, .tac{
-    text-align: center;
-}
-
-.time{
-    display: flex;
-    justify-content: space-between;
-}
-
-#aWorkingTime, #pWorkingTime{
-    white-space: nowrap;
+table{
+    margin: 0 auto;
 }
 
 table td{
+    padding: 5px;
     border: 1px solid black;
 }
+
+.saveNewDayBtn{
+    margin: 1rem 100px;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 1px 1px green;
+}
+
+.saveNewDayBtn:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .none{
     display: none;
 }
-.tac{
-    margin: 0 auto;
-}
 
-.asd{
-    background-color: red;
-}

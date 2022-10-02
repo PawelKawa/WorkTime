@@ -9,97 +9,122 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <button id="showInterfaceButton">Add new day</button>
-    <div class="none" id="userInterface">
-      <table>
-        <tr>
-          <td colspan="3" class="tac">Date</td>
-        </tr>
-        <tr>
-          <td colspan="3" class="tac"><input type="date" id="date" /></td>
-        </tr>
-
-        <tr>
-          <td>Wife</td>
-          <td>
-            <select name="" id="wStart">
-              <option value="0">Start time</option>
-              <option value="7">7:00</option>
-              <option value="8">8:00</option>
-              <option value="9">9:00</option>
-              <option value="10">10:00</option>
-              <option value="11">11:00</option>
-              <option value="12">12:00</option>
-              <option value="13">13:00</option>
-              <option value="14">14:00</option>
-              <option value="15">15:00</option>
-              <option value="6">REST DAY</option>
-            </select>
-          </td>
-          <td>
-            <select name="" id="wEnd" class="none">
-              <option value="0">Finish time</option>
-              <option value="15">15:30</option>
-              <option value="16">16:30</option>
-              <option value="17">17:30</option>
-              <option value="18">18:30</option>
-              <option value="19">19:30</option>
-              <option value="20">20:30</option>
-              <option value="21">21:30</option>
-              <option value="22">22:30</option>
-              <option value="23">23:30</option>
-              <option value="6">REST DAY</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>Husband</td>
-          <td>
-            <select name="" id="hStart">
-              <option value="0">Start time</option>
-              <option value="7">7:00</option>
-              <option value="8">8:00</option>
-              <option value="9">9:00</option>
-              <option value="10">10:00</option>
-              <option value="11">11:00</option>
-              <option value="12">12:00</option>
-              <option value="13">13:00</option>
-              <option value="14">14:00</option>
-              <option value="15">15:00</option>
-              <option value="6">REST DAY</option>
-            </select>
-          </td>
-          <td>
-            <select name="" id="hEnd" class="none">
-              <option value="0">Finish time</option>
-              <option value="14">14:00</option>
-              <option value="15">15:00</option>
-              <option value="16">16:00</option>
-              <option value="17">17:00</option>
-              <option value="18">18:00</option>
-              <option value="19">19:00</option>
-              <option value="20">20:00</option>
-              <option value="21">21:00</option>
-              <option value="22">22:00</option>
-              <option value="6">REST DAY</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3" class="tac">Note</td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <textarea name="" id="note" cols="30" rows="5"></textarea>
-          </td>
-        </tr>
-      </table>
-      <button id="saveNewDay">Save details</button>
-    </div>
     <div class="container">
-      <p class="wife">WIFE</p>
-      <p class="husband">HUSBAND</p>
-      <div id="schedule"></div>
+      <div class="userInterface">
+        <form action="" method="post" id="form">
+          <table>
+            <tr>
+              <td class="">Date</td>
+              <td colspan="2" class=""><input type="date" id="date" /></td>
+            </tr>
+
+            <tr>
+              <td>Wife</td>
+              <td>
+                <select name="" id="wifeStart">
+                  <option value="0">Start</option>
+                  <option value="7">7:00</option>
+                  <option value="8">8:00</option>
+                  <option value="9">9:00</option>
+                  <option value="10">10:00</option>
+                  <option value="11">11:00</option>
+                  <option value="12">12:00</option>
+                  <option value="13">13:00</option>
+                  <option value="14">14:00</option>
+                  <option value="15">15:00</option>
+                  <option value="1">REST DAY</option>
+                </select>
+              </td>
+              <td>
+                <select name="" id="wifeEnd" class="">
+                  <option value="0">Finish</option>
+                  <option value="15">15:30</option>
+                  <option value="16">16:30</option>
+                  <option value="17">17:30</option>
+                  <option value="18">18:30</option>
+                  <option value="19">19:30</option>
+                  <option value="20">20:30</option>
+                  <option value="21">21:30</option>
+                  <option value="22">22:30</option>
+                  <option value="23">23:30</option>
+                  <option value="1">REST DAY</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Husband</td>
+              <td>
+                <select name="" id="husbandStart">
+                  <option value="0">Start</option>
+                  <option value="7">7:00</option>
+                  <option value="8">8:00</option>
+                  <option value="9">9:00</option>
+                  <option value="10">10:00</option>
+                  <option value="11">11:00</option>
+                  <option value="12">12:00</option>
+                  <option value="13">13:00</option>
+                  <option value="14">14:00</option>
+                  <option value="15">15:00</option>
+                  <option value="1">REST DAY</option>
+                </select>
+              </td>
+              <td>
+                <select name="" id="husbandEnd" class="">
+                  <option value="0">Finish</option>
+                  <option value="14">14:00</option>
+                  <option value="15">15:00</option>
+                  <option value="16">16:00</option>
+                  <option value="17">17:00</option>
+                  <option value="18">18:00</option>
+                  <option value="19">19:00</option>
+                  <option value="20">20:00</option>
+                  <option value="21">21:00</option>
+                  <option value="22">22:00</option>
+                  <option value="1">REST DAY</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" class="">Note</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <textarea name="" id="note" cols="35" rows="5"></textarea>
+              </td>
+            </tr>
+          </table>
+          <button type="submit" class="saveNewDayBtn">Add New day</button>
+        </form>
+      </div>
+
+      <div id="schedule">
+        <table>
+          <th>
+            <tr>
+              <td rowspan="2">Data</td>
+              <td colspan="2">Andzia</td>
+              <td colspan="2">Pawel</td>
+              <td rowspan="2">Notatka</td>
+            </tr>
+            <tr>
+              <td>Start</td>
+              <td>End</td>
+              <td>Start</td>
+              <td>End</td>
+            </tr>
+          </th>
+          <tbody id="schedule">
+            <tr>
+              <td>21/04/2022</td>
+              <td>11:00</td>
+              <td>19.30</td>
+              <td>7:00</td>
+              <td>15:00</td>
+              <td>Tutaj jest jakas notatka</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
