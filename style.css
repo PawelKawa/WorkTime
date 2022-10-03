@@ -19,11 +19,6 @@ table{
     margin: 0 auto;
 }
 
-table td{
-    padding: 5px;
-    border: 1px solid black;
-}
-
 .saveNewDayBtn{
     margin: 1rem 100px;
     text-align: center;
@@ -31,13 +26,19 @@ table td{
     box-shadow: 1px 1px green;
 }
 
-.saveNewDayBtn:hover{
+.btn{
     cursor: pointer;
 }
 
+.none{
+    display: none;
+}
 
-
-
+.red{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
 
  
 
