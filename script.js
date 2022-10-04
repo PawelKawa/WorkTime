@@ -1,5 +1,22 @@
 // document.body.innerHTML = "JS is working";
 
+const fullDate = new Date();
+const dayName = fullDate.toLocaleString('en-us', { weekday: 'long' });
+const myDateFormatted = formatDate(fullDate);
+function formatDate(obj) {
+  const parts = {
+    date: obj.getDate(),
+    month: obj.getMonth() + 1,
+    year: obj.getFullYear()
+  };
+  return `${parts.date}/${parts.month}/${parts.year}`
+}
+
+const dayOfWeek = document.getElementById('dayNames');
+const date = document.getElementById('date');
+dayOfWeek.append(dayName);
+date.append(myDateFormatted)
+
 const addDay = document.querySelector('.add');
 addDay.addEventListener('click', function () {
   let userInterface = document.querySelector('.userInterface');

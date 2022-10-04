@@ -15,8 +15,14 @@
     
     <!-- <div class="red"></div> -->
     <div class="container">
-      <button class="add btn">Add day</button>
-      <button class="options btn">Options</button>
+      <div class="date">
+       <p id="dayNames"></p>
+       <p id="date"></p>
+      </div>
+      <div class="buttons">
+        <button class="add btn">Add day</button>
+        <button class="options btn">Show options</button>
+      </div>
       <div class="userInterface none">
         <form action="" method="post" id="form">
           <table>
@@ -92,15 +98,15 @@
               </td>
             </tr>
             <tr>
-              <td colspan="3" class="">Note</td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <textarea name="" id="note" cols="35" rows="5"></textarea>
+              <td  class="">Note</td>
+              <td colspan="2">
+                <textarea name="" id="note" cols="23" rows="5"></textarea>
               </td>
             </tr>
           </table>
-          <button type="submit" class="saveNewDayBtn btn">Add New day</button>
+          <div class="btnSubmitHolder">
+            <button type="submit" class="saveNewDayBtn btn">Add New day</button>
+          </div>
         </form>
       </div>
 

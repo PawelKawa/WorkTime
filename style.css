@@ -1,12 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+box
+
 html{
-    font-size: 20px;
+    font-size: 10px;
 }
 body {
     background-color: #ccc;
 }
 .container{
     margin:0 auto;
-    width: 300px;
+    width: 500px;
 }
 
 .userInterface{
@@ -17,17 +24,36 @@ body {
 
 table{
     margin: 0 auto;
+    /* border-collapse: separate; */
+    border-spacing: 0 1em;
 }
 
-.saveNewDayBtn{
-    margin: 1rem 100px;
+td, textarea{
+    font-size: 1.5rem;
+}
+textarea{
+    margin: 0.5rem 1rem;
+}
+
+select, input{
+    font-size: 1.5rem;
+    margin: 0.5rem 1rem;
+}
+.btnSubmitHolder{
     text-align: center;
+}
+.saveNewDayBtn{
+    /* margin: 1rem 200px; */
+    /* text-align: center; */
     padding: 5px;
-    box-shadow: 1px 1px green;
+    width: 13rem;
 }
 
 .btn{
     cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    padding: 0.5rem;
 }
 
 .none{
@@ -40,7 +66,16 @@ table{
     width: 100px;
 }
 
- 
+ .date, .buttons{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .date>p{
+    margin: 10px 0;
+    font-size: 2rem;
+ }
+
 
 
 
