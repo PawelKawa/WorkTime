@@ -44,11 +44,15 @@ const length = (start, end) => {
 
   if (endMinutes == '30') {
     return (endHours + 0.5 - startHours)*5.555 +'%';
-
   } else {
     return (endHours - startHours)*5.555 +'%';
   }
 };
+
+const marginLeft = (start) => {
+  let startHours = Number(start.slice(0, 2));
+  return (startHours - 6) *5.555 +'%'
+}
 
 
 function getAll() {
@@ -69,8 +73,10 @@ function getAll() {
         let husbandEnd = data[i]['hEnd'];
         let note = data[i]['note'];
         let wifeLength = length(wifeStart, wifeEnd);
-        let husbandLength = length(husbandStart,husbandEnd)
-        newDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note, wifeLength,husbandLength);
+        let husbandLength = length(husbandStart, husbandEnd);
+        let wifeMarginLeft = marginLeft(wifeStart);
+        let husbandMarginLeft = marginLeft(husbandStart);
+        newDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note, wifeLength, husbandLength, wifeMarginLeft, husbandMarginLeft);
 
       }
     },
@@ -129,7 +135,7 @@ $('#form').on('submit', function (e) {
 });
 
 
-const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength) => {
+const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength,wifeMarginLeft,husbandMarginLeft) => {
   const fieldset = document.createElement('fieldset');
   fieldset.id = id;
 
@@ -140,13 +146,15 @@ const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength) => {
   const div = document.createElement('div');
   div.classList.add('wife');
   div.style.width = wifeLength;
-  const inDiv = document.createTextNode(`Andzia ${ws} - ${we}`);
+  div.style.marginLeft = wifeMarginLeft;
+  const inDiv = document.createTextNode(`${ws} - ${we}`);
   div.append(inDiv);
 
   const div2 = document.createElement('div');
-  const inDiv2 = document.createTextNode(`Pawel ${hs} - ${he}`);
+  const inDiv2 = document.createTextNode(`${hs} - ${he}`);
   div2.classList.add('husband');
   div2.style.width = husbandLength;
+  div2.style.marginLeft = husbandMarginLeft;
   div2.append(inDiv2);
 
   const notka = document.createElement('p');
@@ -188,7 +196,7 @@ schedule.addEventListener('click', function (e) {
     if (confirm(`Are you sure you want to delete ${deleteThisDayText}?`)) {
       deleteDay(deleteThisDayId);
     } else {
-      alert('nie, to nie');
+      alert('No means NO!');
     }
   } else if (e.target.classList.contains('editBtn')) {
     console.log('edit btn');
