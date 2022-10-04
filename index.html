@@ -9,20 +9,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-    
     <!-- <button id="asd">Append</button> -->
-    
+
     <!-- <div class="red"></div> -->
     <div class="container">
       <div class="date">
-       <p id="dayNames"></p>
-       <p id="date"></p>
+        <p id="dayNames"></p>
+        <p id="date2"></p>
       </div>
       <div class="buttons">
         <button class="add btn">Add day</button>
         <button class="options btn">Show options</button>
       </div>
+      <fieldset id="1">
+        <legend>2022-10-01</legend>
+        <div class="wife">Andzia 15 - 22</div>
+        <div class="husband">Pawel 7 - 15</div>
+
+        <p>some note in here up to 255 characters.</p>
+        <div id="tools" class="tools none">
+          <button class="deleteBtn btn" id="delete1">DELETE</button
+          ><button class="editBtn btn" id="edit1">EDIT</button>
+        </div>
+      </fieldset>
       <div class="userInterface none">
         <form action="" method="post" id="form">
           <table>
@@ -36,9 +45,9 @@
               <td>
                 <select name="" id="wifeStart">
                   <option value="0">Start</option>
-                  <option value="7">7:00</option>
-                  <option value="8">8:00</option>
-                  <option value="9">9:00</option>
+                  <option value="7">07:00</option>
+                  <option value="8">08:00</option>
+                  <option value="9">09:00</option>
                   <option value="10">10:00</option>
                   <option value="11">11:00</option>
                   <option value="12">12:00</option>
@@ -69,9 +78,9 @@
               <td>
                 <select name="" id="husbandStart">
                   <option value="0">Start</option>
-                  <option value="7">7:00</option>
-                  <option value="8">8:00</option>
-                  <option value="9">9:00</option>
+                  <option value="7">07:00</option>
+                  <option value="8">08:00</option>
+                  <option value="9">09:00</option>
                   <option value="10">10:00</option>
                   <option value="11">11:00</option>
                   <option value="12">12:00</option>
@@ -98,22 +107,17 @@
               </td>
             </tr>
             <tr>
-              <td  class="">Note</td>
+              <td class="">Note</td>
               <td colspan="2">
                 <textarea name="" id="note" cols="23" rows="5"></textarea>
               </td>
             </tr>
           </table>
-          <div class="btnSubmitHolder">
             <button type="submit" class="saveNewDayBtn btn">Add New day</button>
-          </div>
         </form>
       </div>
 
-      <div id="schedule">
-
-
-      </div>
+      <div id="schedule"></div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"

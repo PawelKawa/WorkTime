@@ -11,15 +11,27 @@ html{
 body {
     background-color: #ccc;
 }
+
+.date, .buttons{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .date>p{
+    margin: 10px 0;
+    font-size: 2rem;
+ }
+
 .container{
     margin:0 auto;
-    width: 500px;
+    max-width: 600px;
 }
 
 .userInterface{
     background-color: goldenrod;
     box-shadow: 5px 5px #aaa;
     border-radius: 5px;
+    margin-bottom: 2rem;
 }
 
 table{
@@ -39,12 +51,9 @@ select, input{
     font-size: 1.5rem;
     margin: 0.5rem 1rem;
 }
-.btnSubmitHolder{
-    text-align: center;
-}
+
 .saveNewDayBtn{
-    /* margin: 1rem 200px; */
-    /* text-align: center; */
+    margin-left: 48%;
     padding: 5px;
     width: 13rem;
 }
@@ -60,27 +69,33 @@ select, input{
     display: none;
 }
 
-.red{
-    background-color: red;
-    height: 100px;
-    width: 100px;
+
+
+fieldset{
+    background-color: aquamarine;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
- .date, .buttons{
-    display: flex;
-    justify-content: space-between;
- }
+legend{
+    font-size: 1.5rem;
+    color: aquamarine;
+    background-color: red;
+    border-radius: 9px;
+}
 
- .date>p{
-    margin: 10px 0;
-    font-size: 2rem;
- }
+fieldset :nth-child(4){
+    margin-top: 1rem;
+}
 
+.wife{
 
+    background-color: pink;
+}
+.husband{
 
-
-
-
+    background-color: royalblue;
+}
 
 
 

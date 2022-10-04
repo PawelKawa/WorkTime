@@ -13,7 +13,7 @@ function formatDate(obj) {
 }
 
 const dayOfWeek = document.getElementById('dayNames');
-const date = document.getElementById('date');
+const date = document.getElementById('date2');
 dayOfWeek.append(dayName);
 date.append(myDateFormatted)
 
@@ -37,6 +37,20 @@ const clearSchedule = () => {
 
 //------------get all days-----------------------------------------------
 
+const length = (start, end) => {
+  let startHours = Number(start.slice(0, 2));
+  let endHours = Number(end.slice(0, 2));
+  let endMinutes = end.slice(3, 5);
+
+  if (endMinutes == '30') {
+    return (endHours + 0.5 - startHours)*5.555 +'%';
+
+  } else {
+    return (endHours - startHours)*5.555 +'%';
+  }
+};
+
+
 function getAll() {
   $.ajax({
     type: 'POST',
@@ -54,7 +68,10 @@ function getAll() {
         let husbandStart = data[i]['hStart'];
         let husbandEnd = data[i]['hEnd'];
         let note = data[i]['note'];
-        newDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
+        let wifeLength = length(wifeStart, wifeEnd);
+        let husbandLength = length(husbandStart,husbandEnd)
+        newDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note, wifeLength,husbandLength);
+
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -112,7 +129,7 @@ $('#form').on('submit', function (e) {
 });
 
 
-const newDay = (id, data, ws, we, hs, he, note) => {
+const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength) => {
   const fieldset = document.createElement('fieldset');
   fieldset.id = id;
 
@@ -120,13 +137,17 @@ const newDay = (id, data, ws, we, hs, he, note) => {
   const inLegend = document.createTextNode(data);
   legend.append(inLegend);
 
-  const p = document.createElement('p');
-  const inP = document.createTextNode(`Andzia ${ws} - ${we}`);
-  p.append(inP);
+  const div = document.createElement('div');
+  div.classList.add('wife');
+  div.style.width = wifeLength;
+  const inDiv = document.createTextNode(`Andzia ${ws} - ${we}`);
+  div.append(inDiv);
 
-  const p2 = document.createElement('p');
-  const inP2 = document.createTextNode(`Pawel ${hs} - ${he}`);
-  p2.append(inP2);
+  const div2 = document.createElement('div');
+  const inDiv2 = document.createTextNode(`Pawel ${hs} - ${he}`);
+  div2.classList.add('husband');
+  div2.style.width = husbandLength;
+  div2.append(inDiv2);
 
   const notka = document.createElement('p');
   const inNotka = document.createTextNode(note);
@@ -149,7 +170,7 @@ const newDay = (id, data, ws, we, hs, he, note) => {
   editBtn.append(editBtnTxt);
 
   tools.append(deleteBtn, editBtn);
-  fieldset.append(legend, p, p2, notka, tools);
+  fieldset.append(legend, div, div2, notka, tools);
 
   document.getElementById('schedule').append(fieldset);
 };
@@ -174,6 +195,8 @@ schedule.addEventListener('click', function (e) {
   }
 });
 
+//----------------------------delete day --------------------------
+
 const deleteDay = (dayId) => {
   $.ajax({
     type: 'POST',
@@ -193,3 +216,13 @@ const deleteDay = (dayId) => {
     },
   });
 };
+
+//----------------------------------------------------------------
+
+
+
+
+
+
+
+
