@@ -1,5 +1,6 @@
 // document.body.innerHTML = "JS is working";
 
+//----------------day & date-----------------
 const fullDate = new Date();
 const dayName = fullDate.toLocaleString('en-us', { weekday: 'long' });
 const myDateFormatted = formatDate(fullDate);
@@ -7,15 +8,17 @@ function formatDate(obj) {
   const parts = {
     date: obj.getDate(),
     month: obj.getMonth() + 1,
-    year: obj.getFullYear()
+    year: obj.getFullYear(),
   };
-  return `${parts.date}/${parts.month}/${parts.year}`
+  return `${parts.date}/${parts.month}/${parts.year}`;
 }
 
 const dayOfWeek = document.getElementById('dayNames');
 const date = document.getElementById('date2');
 dayOfWeek.append(dayName);
-date.append(myDateFormatted)
+date.append(myDateFormatted);
+
+//--------------------------two main buttons at top --------------
 
 const addDay = document.querySelector('.add');
 addDay.addEventListener('click', function () {
@@ -23,17 +26,23 @@ addDay.addEventListener('click', function () {
   userInterface.classList.toggle('none');
 });
 
+const needOptions = () => {
+  if (showOptions.classList.contains('active')) {
+    let options = document.getElementsByClassName('tools');
+    for (let i = 0; i < options.length; i++) {
+      options[i].classList.remove('none');
+    }
+  }
+};
+
 const showOptions = document.querySelector('.options');
 showOptions.addEventListener('click', function () {
   let options = document.getElementsByClassName('tools');
   for (let i = 0; i < options.length; i++) {
     options[i].classList.toggle('none');
   }
-})
-
-const clearSchedule = () => {
-  $('#schedule').empty();
-};
+  showOptions.classList.toggle('active');
+});
 
 //------------get all days-----------------------------------------------
 
@@ -43,17 +52,16 @@ const length = (start, end) => {
   let endMinutes = end.slice(3, 5);
 
   if (endMinutes == '30') {
-    return (endHours + 0.5 - startHours)*5.555 +'%';
+    return (endHours + 0.5 - startHours) * 5.555 + '%';
   } else {
-    return (endHours - startHours)*5.555 +'%';
+    return (endHours - startHours) * 5.555 + '%';
   }
 };
 
 const marginLeft = (start) => {
   let startHours = Number(start.slice(0, 2));
-  return (startHours - 6) *5.555 +'%'
-}
-
+  return (startHours - 6) * 5.555 + '%';
+};
 
 function getAll() {
   $.ajax({
@@ -76,8 +84,20 @@ function getAll() {
         let husbandLength = length(husbandStart, husbandEnd);
         let wifeMarginLeft = marginLeft(wifeStart);
         let husbandMarginLeft = marginLeft(husbandStart);
-        newDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note, wifeLength, husbandLength, wifeMarginLeft, husbandMarginLeft);
-
+        newDay(
+          id,
+          date,
+          wifeStart,
+          wifeEnd,
+          husbandStart,
+          husbandEnd,
+          note,
+          wifeLength,
+          husbandLength,
+          wifeMarginLeft,
+          husbandMarginLeft
+        );
+        needOptions();
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -90,6 +110,10 @@ function getAll() {
 getAll();
 
 //------------add new day with data----------------------------------------------
+
+const clearSchedule = () => {
+  $('#schedule').empty();
+};
 
 function addNewDay(date, wifeStart, wifeEnd, husbandStart, husbandEnd, note) {
   $.ajax({
@@ -134,8 +158,19 @@ $('#form').on('submit', function (e) {
   }
 });
 
-
-const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength,wifeMarginLeft,husbandMarginLeft) => {
+const newDay = (
+  id,
+  data,
+  wifeStart,
+  wifeEnd,
+  husbandStart,
+  husbandEnd,
+  note,
+  wifeLength,
+  husbandLength,
+  wifeMarginLeft,
+  husbandMarginLeft
+) => {
   const fieldset = document.createElement('fieldset');
   fieldset.id = id;
 
@@ -147,11 +182,11 @@ const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength,wifeMar
   div.classList.add('wife');
   div.style.width = wifeLength;
   div.style.marginLeft = wifeMarginLeft;
-  const inDiv = document.createTextNode(`${ws} - ${we}`);
+  const inDiv = document.createTextNode(`${wifeStart} - ${wifeEnd}`);
   div.append(inDiv);
 
   const div2 = document.createElement('div');
-  const inDiv2 = document.createTextNode(`${hs} - ${he}`);
+  const inDiv2 = document.createTextNode(`${husbandStart} - ${husbandEnd}`);
   div2.classList.add('husband');
   div2.style.width = husbandLength;
   div2.style.marginLeft = husbandMarginLeft;
@@ -167,13 +202,13 @@ const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength,wifeMar
 
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('deleteBtn', 'btn');
-  deleteBtn.id = `delete${id}`;
+  // deleteBtn.id = `delete${id}`;
   const deleteBtnTxt = document.createTextNode('DELETE');
   deleteBtn.append(deleteBtnTxt);
 
   const editBtn = document.createElement('button');
   editBtn.classList.add('editBtn', 'btn');
-  editBtn.id = `edit${id}`;
+  // editBtn.id = `edit${id}`;
   const editBtnTxt = document.createTextNode('EDIT');
   editBtn.append(editBtnTxt);
 
@@ -183,25 +218,51 @@ const newDay = (id, data, ws, we, hs, he, note, wifeLength,husbandLength,wifeMar
   document.getElementById('schedule').append(fieldset);
 };
 
-// ----------------------BUTTONS ALL-IN-1 -------------------
+// ----------------------BUTTONS DELETE & EDIT -------------------
 
 const schedule = document.getElementById('schedule');
 schedule.addEventListener('click', function (e) {
-  // e.preventDefault;
-  // e.stopPropagation;
+
   if (e.target.classList.contains('deleteBtn')) {
     const deleteThisDayId = e.target.closest('fieldset').id;
     const deleteThisDayText =
       e.target.closest('fieldset').childNodes[0].textContent;
     if (confirm(`Are you sure you want to delete ${deleteThisDayText}?`)) {
       deleteDay(deleteThisDayId);
-    } else {
-      alert('No means NO!');
-    }
+    } 
+
   } else if (e.target.classList.contains('editBtn')) {
     console.log('edit btn');
+    console.log(e.target);
+    const editSHow = document.getElementById('editing');
+    editSHow.classList.remove('none');
+    showOptions.classList.remove('active');
+    let options = document.getElementsByClassName('tools');
+    for (let i = 0; i < options.length; i++) {
+      options[i].classList.add('none');
+    }
+    const editThisDayId = e.target.closest('fieldset').id;
+    getDay(editThisDayId);
   }
 });
+
+//---cancel button---
+
+const cancelBtn = document.querySelector('.cancelEditDayBtn');
+cancelBtn.addEventListener('click', function () {
+  const editSHow = document.getElementById('editing');
+  editSHow.classList.add('none');
+  console.log('cancel')
+})
+
+//-----save edited day button --------
+
+$('#editForm').on('submit', function (e) {
+  e.preventDefault();
+  console.log('save')
+
+}) 
+
 
 //----------------------------delete day --------------------------
 
@@ -212,8 +273,6 @@ const deleteDay = (dayId) => {
     data: { id: dayId },
     dataType: 'json',
     success: function () {
-      console.log('deleted');
-      // location.reload();
       clearSchedule();
       getAll();
     },
@@ -225,12 +284,25 @@ const deleteDay = (dayId) => {
   });
 };
 
-//----------------------------------------------------------------
+//--------------------------edit day--------------------------------------
 
-
-
-
-
-
-
+const getDay = (dayId) => {
+  $.ajax({
+    type: 'POST',
+    url: 'php/getDay.php',
+    data: { id: dayId },
+    dataType: 'json',
+    success: function (results) {
+      let data = results['data'];
+      console.log(data)
+      clearSchedule();
+      getAll();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+}
 
