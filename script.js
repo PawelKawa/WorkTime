@@ -1,5 +1,7 @@
 // document.body.innerHTML = "JS is working";
 
+let id = '';
+
 //----------------day & date-----------------
 const fullDate = new Date();
 const dayName = fullDate.toLocaleString('en-us', { weekday: 'long' });
@@ -84,6 +86,7 @@ function getAll() {
         let husbandLength = length(husbandStart, husbandEnd);
         let wifeMarginLeft = marginLeft(wifeStart);
         let husbandMarginLeft = marginLeft(husbandStart);
+        
         newDay(
           id,
           date,
@@ -222,15 +225,13 @@ const newDay = (
 
 const schedule = document.getElementById('schedule');
 schedule.addEventListener('click', function (e) {
-
   if (e.target.classList.contains('deleteBtn')) {
     const deleteThisDayId = e.target.closest('fieldset').id;
     const deleteThisDayText =
       e.target.closest('fieldset').childNodes[0].textContent;
     if (confirm(`Are you sure you want to delete ${deleteThisDayText}?`)) {
       deleteDay(deleteThisDayId);
-    } 
-
+    }
   } else if (e.target.classList.contains('editBtn')) {
     console.log('edit btn');
     console.log(e.target);
@@ -252,17 +253,25 @@ const cancelBtn = document.querySelector('.cancelEditDayBtn');
 cancelBtn.addEventListener('click', function () {
   const editSHow = document.getElementById('editing');
   editSHow.classList.add('none');
-  console.log('cancel')
-})
+  console.log('cancel');
+});
 
 //-----save edited day button --------
 
 $('#editForm').on('submit', function (e) {
   e.preventDefault();
-  console.log('save')
-
-}) 
-
+ 
+  const date = document.getElementById('editDate').value;
+  const wifeStart = document.getElementById('editWifeStart').selectedOptions[0].text;
+  const wifeEnd = document.getElementById('editWifeEnd').selectedOptions[0].text;
+  const husbandStart = document.getElementById('editHusbandStart').selectedOptions[0].text;
+  const husbandEnd = document.getElementById('editHusbandEnd').selectedOptions[0].text;
+  const note = document.getElementById('editNote').value;
+  document.getElementById('editing').classList.add('none');
+  updateDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
+  clearSchedule();
+  updateDay();
+});
 
 //----------------------------delete day --------------------------
 
@@ -284,7 +293,7 @@ const deleteDay = (dayId) => {
   });
 };
 
-//--------------------------edit day--------------------------------------
+//-------------------------- get day for edit--------------------------------------
 
 const getDay = (dayId) => {
   $.ajax({
@@ -294,9 +303,51 @@ const getDay = (dayId) => {
     dataType: 'json',
     success: function (results) {
       let data = results['data'];
-      console.log(data)
-      clearSchedule();
-      getAll();
+      console.log(data);
+
+      id = data[0]['id'];
+
+      const date = data[0]['date'];
+      document.getElementById('editDate').value = date;
+
+      const wifeStart = data[0]['wStart'].slice(0, 2);
+      if (wifeStart === 'St') {
+        document.getElementById('editWifeStart').value = 0;
+      } else if (wifeStart === 'RE') {
+        document.getElementById('editWifeStart').value = 1;
+      } else {
+        document.getElementById('editWifeStart').value = wifeStart;
+      }
+
+      const wifeEnd = data[0]['wEnd'].slice(0, 2);
+      if (wifeEnd === 'Fi') {
+        document.getElementById('editWifeEnd').value = 0;
+      } else if (wifeEnd === 'RE') {
+        document.getElementById('editWifeEnd').value = 1;
+      } else {
+        document.getElementById('editWifeEnd').value = wifeEnd;
+      }
+
+      const husbandStart = data[0]['hStart'].slice(0, 2);
+      if (husbandStart === 'St') {
+        document.getElementById('editHusbandStart').value = 0;
+      } else if (husbandStart === 'RE') {
+        document.getElementById('editHusbandStart').value = 1;
+      } else {
+        document.getElementById('editHusbandStart').value = husbandStart;
+      }
+
+      const husbandEnd = data[0]['hEnd'].slice(0, 2);
+      if (husbandEnd === 'St') {
+        document.getElementById('editHusbandEnd').value = 0;
+      } else if (husbandEnd === 'RE') {
+        document.getElementById('editHusbandEnd').value = 1;
+      } else {
+        document.getElementById('editHusbandEnd').value = husbandEnd;
+      }
+
+      const note = data[0]['note'];
+      document.getElementById('editNote').value = note;
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);
@@ -304,5 +355,33 @@ const getDay = (dayId) => {
       console.log(errorThrown);
     },
   });
+};
+
+//---------------------save edited day-----------------
+
+function updateDay(id,date, wifeStart,wifeEnd,husbandStart,husbandEnd,note) {
+  $.ajax({
+      type: 'POST',
+      url: './php/updateDay.php',
+      data: {
+          id: id,
+          date: date,
+          wStart: wifeStart,
+          wEnd: wifeEnd,
+          hStart: husbandStart,
+          hEnd: husbandEnd,
+          note: note,
+      },
+      dataType: 'json',
+    success: function () {
+    clearSchedule();
+    getAll();
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+      }
+  })
 }
 

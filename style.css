@@ -72,10 +72,13 @@ select, input{
 
 
 fieldset{
+    position: relative;
     background-color: aquamarine;
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
+
 
 legend{
     font-size: 1.5rem;

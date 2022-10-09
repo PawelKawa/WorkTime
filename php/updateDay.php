@@ -24,13 +24,15 @@
 
 	}	
 
-	// SQL does not accept parameters and so is not prepared
+	$query = $conn->prepare('UPDATE worktime 
+	SET date = ?, wStart = ?, wEnd = ?, hStart = ?, hEnd = ?, note = ? 
+	WHERE id = ?');
 
-	$query = 'SELECT * FROM worktime ORDER BY date DESC';
+	$query->bind_param("ssssssi",$_POST['date'], $_POST['wStart'], $_POST['wEnd'], $_POST['hStart'], $_POST['hEnd'], $_POST['note'], $_POST['id']);
 
-	$result = $conn->query($query);
+	$query->execute();
 	
-	if (!$result) {
+	if (false === $query) {
 
 		$output['status']['code'] = "400";
 		$output['status']['name'] = "executed";
@@ -44,20 +46,12 @@
 		exit;
 
 	}
-   
-   	$data = [];
-
-	while ($row = mysqli_fetch_assoc($result)) {
-
-		array_push($data, $row);
-
-	}
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
 	$output['status']['description'] = "success";
 	$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
-	$output['data'] = $data;
+	$output['data'] = [];
 	
 	mysqli_close($conn);
 
