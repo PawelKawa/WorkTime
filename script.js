@@ -76,7 +76,9 @@ function getAll() {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         let id = data[i]['id'];
-        let date = data[i]['date'];
+        const fullDate = new Date(data[i]['date']);
+        let date = fullDate.toLocaleString('en-us', { weekday: 'long' });
+        date += ' '+data[i]['date'];
         let wifeStart = data[i]['wStart'];
         let wifeEnd = data[i]['wEnd'];
         let husbandStart = data[i]['hStart'];
