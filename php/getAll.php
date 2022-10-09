@@ -26,7 +26,7 @@
 
 	// SQL does not accept parameters and so is not prepared
 
-	$query = 'SELECT * FROM worktime ORDER BY date DESC';
+	$query = 'SELECT * FROM worktime ORDER BY date';
 
 	$result = $conn->query($query);
 	

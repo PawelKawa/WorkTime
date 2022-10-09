@@ -76,9 +76,52 @@ function getAll() {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         let id = data[i]['id'];
+        let day = data[i]['date'].slice(8, 11);
+        console.log(day);
+        const th = () => {
+          let day = data[i]['date'].slice(8, 11);
+          if (day == 01) {
+            return 'st';
+          } else if (day == 02) {
+            return 'nd';
+          } else if (day == 03) {
+            return 'rd';
+          } else {
+            return 'th';
+          }
+        };
+        const months = () => {
+          let month = data[i]['date'].slice(5, 7);
+          if (month == 1) {
+            return 'January';
+          } else if (month == 2) {
+            return 'February';
+          } else if (month == 3) {
+            return 'March';
+          } else if (month == 4) {
+            return 'April';
+          } else if (month == 5) {
+            return 'May';
+          } else if (month == 6) {
+            return 'June';
+          } else if (month == 7) {
+            return 'July';
+          } else if (month == 8) {
+            return 'August';
+          } else if (month == 9) {
+            return 'September';
+          } else if (month == 10) {
+            return 'October';
+          } else if (month == 11) {
+            return 'November';
+          } else if (month == 12) {
+            return 'December';
+          }
+        };
+
         const fullDate = new Date(data[i]['date']);
         let date = fullDate.toLocaleString('en-us', { weekday: 'long' });
-        date += ' '+data[i]['date'];
+        date += ', ' + day + th() + ' ' + months();
         let wifeStart = data[i]['wStart'];
         let wifeEnd = data[i]['wEnd'];
         let husbandStart = data[i]['hStart'];
@@ -88,7 +131,7 @@ function getAll() {
         let husbandLength = length(husbandStart, husbandEnd);
         let wifeMarginLeft = marginLeft(wifeStart);
         let husbandMarginLeft = marginLeft(husbandStart);
-        
+
         newDay(
           id,
           date,
@@ -262,12 +305,16 @@ cancelBtn.addEventListener('click', function () {
 
 $('#editForm').on('submit', function (e) {
   e.preventDefault();
- 
+
   const date = document.getElementById('editDate').value;
-  const wifeStart = document.getElementById('editWifeStart').selectedOptions[0].text;
-  const wifeEnd = document.getElementById('editWifeEnd').selectedOptions[0].text;
-  const husbandStart = document.getElementById('editHusbandStart').selectedOptions[0].text;
-  const husbandEnd = document.getElementById('editHusbandEnd').selectedOptions[0].text;
+  const wifeStart =
+    document.getElementById('editWifeStart').selectedOptions[0].text;
+  const wifeEnd =
+    document.getElementById('editWifeEnd').selectedOptions[0].text;
+  const husbandStart =
+    document.getElementById('editHusbandStart').selectedOptions[0].text;
+  const husbandEnd =
+    document.getElementById('editHusbandEnd').selectedOptions[0].text;
   const note = document.getElementById('editNote').value;
   document.getElementById('editing').classList.add('none');
   updateDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
@@ -361,29 +408,36 @@ const getDay = (dayId) => {
 
 //---------------------save edited day-----------------
 
-function updateDay(id,date, wifeStart,wifeEnd,husbandStart,husbandEnd,note) {
+function updateDay(
+  id,
+  date,
+  wifeStart,
+  wifeEnd,
+  husbandStart,
+  husbandEnd,
+  note
+) {
   $.ajax({
-      type: 'POST',
-      url: './php/updateDay.php',
-      data: {
-          id: id,
-          date: date,
-          wStart: wifeStart,
-          wEnd: wifeEnd,
-          hStart: husbandStart,
-          hEnd: husbandEnd,
-          note: note,
-      },
-      dataType: 'json',
+    type: 'POST',
+    url: './php/updateDay.php',
+    data: {
+      id: id,
+      date: date,
+      wStart: wifeStart,
+      wEnd: wifeEnd,
+      hStart: husbandStart,
+      hEnd: husbandEnd,
+      note: note,
+    },
+    dataType: 'json',
     success: function () {
-    clearSchedule();
-    getAll();
-  },
-  error: function(jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR);
-          console.log(textStatus);
-          console.log(errorThrown);
-      }
-  })
+      clearSchedule();
+      getAll();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
 }
-
