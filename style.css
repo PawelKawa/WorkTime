@@ -9,7 +9,7 @@ html{
     font-size: 10px;
 }
 body {
-    background-color: #ccc;
+    background-color: #666;
 }
 
 .date, .buttons{
@@ -34,6 +34,7 @@ body {
     margin:0 auto;
     max-width: 600px;
     position: relative;
+    padding: 1rem;
 }
 
 .userInterface{
@@ -80,7 +81,16 @@ select, input{
 .none{
     display: none;
 }
+#background{
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1;
 
+}
 fieldset{
     position: relative;
     background-color: #e3f6f5;
@@ -115,14 +125,12 @@ legend{
     border-radius: 10px;
     box-shadow: 5px 5px #aaa;
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* background-color: rgba(0, 0, 0, 0.9); */
+    top: 50%;
+    left: 50%;
     z-index: 1;
-
+    transform: translate(-50%, -50%);
 }
+
 
 .add, .saveNewDayBtn {
     border: 2px solid #0c960c;

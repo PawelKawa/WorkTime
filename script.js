@@ -73,11 +73,11 @@ function getAll() {
     dataType: 'json',
     success: function (results) {
       let data = results['data'];
-      console.log(data);
+      // console.log(data);
       for (let i = 0; i < data.length; i++) {
         let id = data[i]['id'];
         let day = data[i]['date'].slice(8, 11);
-        console.log(day);
+        // console.log(day);
         const th = () => {
           let day = data[i]['date'].slice(8, 11);
           if (day == 01) {
@@ -203,6 +203,7 @@ $('#form').on('submit', function (e) {
     alert('pick a date');
   } else {
     addNewDay(date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
+    document.querySelector('.userInterface').classList.add('none');
   }
 });
 
@@ -280,7 +281,7 @@ schedule.addEventListener('click', function (e) {
   } else if (e.target.classList.contains('editBtn')) {
     console.log('edit btn');
     console.log(e.target);
-    const editSHow = document.getElementById('editing');
+    const editSHow = document.getElementById('background');
     editSHow.classList.remove('none');
     showOptions.classList.remove('active');
     let options = document.getElementsByClassName('tools');
@@ -296,7 +297,7 @@ schedule.addEventListener('click', function (e) {
 
 const cancelBtn = document.querySelector('.cancelEditDayBtn');
 cancelBtn.addEventListener('click', function () {
-  const editSHow = document.getElementById('editing');
+  const editSHow = document.getElementById('background');
   editSHow.classList.add('none');
   console.log('cancel');
 });
@@ -316,10 +317,8 @@ $('#editForm').on('submit', function (e) {
   const husbandEnd =
     document.getElementById('editHusbandEnd').selectedOptions[0].text;
   const note = document.getElementById('editNote').value;
-  document.getElementById('editing').classList.add('none');
+  document.getElementById('background').classList.add('none');
   updateDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
-  clearSchedule();
-  updateDay();
 });
 
 //----------------------------delete day --------------------------
@@ -387,7 +386,7 @@ const getDay = (dayId) => {
       }
 
       const husbandEnd = data[0]['hEnd'].slice(0, 2);
-      if (husbandEnd === 'St') {
+      if (husbandEnd === 'Fi') {
         document.getElementById('editHusbandEnd').value = 0;
       } else if (husbandEnd === 'RE') {
         document.getElementById('editHusbandEnd').value = 1;
