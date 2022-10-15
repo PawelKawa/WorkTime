@@ -241,6 +241,11 @@ const newDay = (
   div2.style.marginLeft = husbandMarginLeft;
   div2.append(inDiv2);
 
+  const div3 = document.createElement('div');
+  const inDiv3 = document.createTextNode(`6 9 12 15 18 21 24`);
+  div3.classList.add('justify');
+  div3.append(inDiv3);
+
   const notka = document.createElement('p');
   const inNotka = document.createTextNode(note);
   notka.append(inNotka);
@@ -262,7 +267,7 @@ const newDay = (
   editBtn.append(editBtnTxt);
 
   tools.append(deleteBtn, editBtn);
-  fieldset.append(legend, div, div2, notka, tools);
+  fieldset.append(legend,div3, div, div2, notka, tools);
 
   document.getElementById('schedule').append(fieldset);
 };
