@@ -73,9 +73,7 @@ select, input{
     font-size: 1.5rem;
     padding: 0.5rem;
 }
-.justify{
-    text-align-last: justify;
-}
+
 .tools{
     display: flex;
     justify-content: space-between;
@@ -99,6 +97,10 @@ fieldset{
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 10px;
+}
+
+fieldset:hover{
+    cursor: pointer;
 }
 
 fieldset :nth-child(5){
@@ -150,7 +152,7 @@ legend{
     border-color: #064f06;
 }
 
-.options, .editBtn{
+.shopping{
     border: 2px solid #0c1596;
     border-radius: 5px;
     color: #F8F8F8;
@@ -159,7 +161,7 @@ legend{
     background: linear-gradient(rgb(17, 37, 221), #0e68bc);
 }
 
-.options:hover, .editBtn:hover{
+.shopping:hover{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
     background: rgb(17, 20, 221);
     background: linear-gradient(rgb(4, 21, 172), #024b8f);

@@ -28,23 +28,6 @@ addDay.addEventListener('click', function () {
   userInterface.classList.toggle('none');
 });
 
-const needOptions = () => {
-  if (showOptions.classList.contains('active')) {
-    let options = document.getElementsByClassName('tools');
-    for (let i = 0; i < options.length; i++) {
-      options[i].classList.remove('none');
-    }
-  }
-};
-
-const showOptions = document.querySelector('.options');
-showOptions.addEventListener('click', function () {
-  let options = document.getElementsByClassName('tools');
-  for (let i = 0; i < options.length; i++) {
-    options[i].classList.toggle('none');
-  }
-  showOptions.classList.toggle('active');
-});
 
 //------------get all days-----------------------------------------------
 
@@ -145,7 +128,6 @@ function getAll() {
           wifeMarginLeft,
           husbandMarginLeft
         );
-        needOptions();
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -243,31 +225,14 @@ const newDay = (
 
   const div3 = document.createElement('div');
   const inDiv3 = document.createTextNode(`6 9 12 15 18 21 24`);
-  div3.classList.add('justify');
+  div3.style.textAlignLast = 'justify';
   div3.append(inDiv3);
 
   const notka = document.createElement('p');
   const inNotka = document.createTextNode(note);
   notka.append(inNotka);
 
-  const tools = document.createElement('div');
-  tools.id = 'tools';
-  tools.classList.add('tools', 'none');
-
-  const deleteBtn = document.createElement('button');
-  deleteBtn.classList.add('deleteBtn', 'btn');
-  // deleteBtn.id = `delete${id}`;
-  const deleteBtnTxt = document.createTextNode('DELETE');
-  deleteBtn.append(deleteBtnTxt);
-
-  const editBtn = document.createElement('button');
-  editBtn.classList.add('editBtn', 'btn');
-  // editBtn.id = `edit${id}`;
-  const editBtnTxt = document.createTextNode('EDIT');
-  editBtn.append(editBtnTxt);
-
-  tools.append(deleteBtn, editBtn);
-  fieldset.append(legend,div3, div, div2, notka, tools);
+  fieldset.append(legend, div3, div, div2, notka);
 
   document.getElementById('schedule').append(fieldset);
 };
@@ -276,25 +241,18 @@ const newDay = (
 
 const schedule = document.getElementById('schedule');
 schedule.addEventListener('click', function (e) {
-  if (e.target.classList.contains('deleteBtn')) {
-    const deleteThisDayId = e.target.closest('fieldset').id;
-    const deleteThisDayText =
-      e.target.closest('fieldset').childNodes[0].textContent;
-    if (confirm(`Are you sure you want to delete ${deleteThisDayText}?`)) {
-      deleteDay(deleteThisDayId);
-    }
-  } else if (e.target.classList.contains('editBtn')) {
-    console.log('edit btn');
-    console.log(e.target);
-    const editSHow = document.getElementById('background');
-    editSHow.classList.remove('none');
-    showOptions.classList.remove('active');
-    let options = document.getElementsByClassName('tools');
-    for (let i = 0; i < options.length; i++) {
-      options[i].classList.add('none');
-    }
-    const editThisDayId = e.target.closest('fieldset').id;
-    getDay(editThisDayId);
+  const editSHow = document.getElementById('background');
+  editSHow.classList.remove('none');
+  const editThisDayId = e.target.closest('fieldset').id;
+  getDay(editThisDayId);
+});
+//------delete button---
+const deleteBtn = document.querySelector('.deleteBtn');
+deleteBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (confirm(`Are you sure you want to delete this day?`)) {
+    deleteDay(id);
   }
 });
 
@@ -337,6 +295,8 @@ const deleteDay = (dayId) => {
     success: function () {
       clearSchedule();
       getAll();
+      const editSHow = document.getElementById('background');
+      editSHow.classList.add('none');
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);
