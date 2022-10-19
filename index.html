@@ -19,6 +19,7 @@
       </div>
       <div class="buttons">
         <button class="add btn">Add day</button>
+        <button class="working btn none">Working</button>
         <button class="shopping btn">Shopping</button>
       </div>
       <div id="background" class="none">
@@ -26,7 +27,9 @@
           <form action="" method="post" id="editForm">
             <table>
               <tr>
-                <td colspan="2" class=""><input type="date" id="editDate" /></td>
+                <td colspan="2" class="">
+                  <input type="date" id="editDate" />
+                </td>
               </tr>
               <tr>
                 <td>
@@ -97,7 +100,6 @@
                   <textarea name="" id="editNote" cols="23" rows="5"></textarea>
                 </td>
               </tr>
-  
             </table>
             <div class="buttons2">
               <button type="submit" class="deleteBtn btn">Delete</button>
@@ -193,6 +195,14 @@
       </div>
 
       <div id="schedule"></div>
+      <div class="shoppingList none">
+        <div>
+          <input class="inputProduct" name="product" type="text">
+          <button type="button" class="addToShoppingListBtn">Add</button>
+        </div>
+        <ul id="shoppingList">
+        </ul>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"

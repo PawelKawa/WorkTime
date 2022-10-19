@@ -28,7 +28,6 @@ addDay.addEventListener('click', function () {
   userInterface.classList.toggle('none');
 });
 
-
 //------------get all days-----------------------------------------------
 
 const length = (start, end) => {
@@ -404,4 +403,79 @@ function updateDay(
       console.log(errorThrown);
     },
   });
+}
+
+//-----------------shopping / working------------------
+getShoppingList();
+const shoppingBtn = document.querySelector('.shopping');
+const workingBtn = document.querySelector('.working');
+const shoppingList = document.querySelector('.shoppingList');
+
+shoppingBtn.addEventListener('click', function () {
+  workingBtn.classList.remove('none');
+  shoppingBtn.classList.add('none');
+  addDay.classList.add('none');
+  schedule.classList.add('none');
+  shoppingList.classList.remove('none');
+});
+
+workingBtn.addEventListener('click', function () {
+  workingBtn.classList.add('none');
+  shoppingBtn.classList.remove('none');
+  addDay.classList.remove('none');
+  schedule.classList.remove('none');
+  shoppingList.classList.add('none');
+});
+
+function getShoppingList() {
+  $.ajax({
+    type: 'POST',
+    url: 'php/getShoppingList.php',
+    data: {},
+    dataType: 'json',
+    success: function (results) {
+      let data = results['data'];
+      console.log(data);
+      let shoppingList = [];
+      for (let i = 0; i < data.length; i++) {
+        // console.log(data[i])
+        shoppingList += `<li class="asd"><button class="shoppingDelBtn" id=${data[i].id}shopDel>X</button> ${data[i].name}</li>`;
+      }
+      document.getElementById('shoppingList').innerHTML = shoppingList;
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+}
+//------add------
+function addToShoppingList(item) {
+  $.ajax({
+    type: 'POST',
+    url: 'php/addShoppingItem.php',
+    data: {
+      item: item,
+    },
+    dataType: 'json',
+    success: function () {
+      getShoppingList();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+}
+const addToShoppingListBtn = document.querySelector('.addToShoppingListBtn');
+addToShoppingListBtn.addEventListener('click', function () {
+  const input = document.querySelector('.inputProduct').value;
+  addToShoppingList(input);
+});
+
+//-------delete-------
+function deleteItemFromShoppingList(e) {
+  const id = docum
 }
