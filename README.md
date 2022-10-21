@@ -1,6 +1,7 @@
 # WorkTime
 
-Single page app, that allows me and my wife know what time are we working in next days.
+Single page app, that allows me and my wife to see our work schedules.
+There is a shopping list in progress and probably more features in the future :)
 
 ## The application is developing using the following:
 
