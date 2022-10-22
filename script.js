@@ -439,7 +439,7 @@ function getShoppingList() {
       let shoppingList = [];
       for (let i = 0; i < data.length; i++) {
         // console.log(data[i])
-        shoppingList += `<li class="asd"><button class="shoppingDelBtn" id=${data[i].id}shopDel>X</button> ${data[i].name}</li>`;
+        shoppingList += `<li class="asd"><button data-id=${data[i].id}  class="shoppingDelBtn" >X</button> ${data[i].name}</li>`;
       }
       document.getElementById('shoppingList').innerHTML = shoppingList;
     },
@@ -469,6 +469,7 @@ function addToShoppingList(item) {
     },
   });
 }
+
 const addToShoppingListBtn = document.querySelector('.addToShoppingListBtn');
 addToShoppingListBtn.addEventListener('click', function () {
   const input = document.querySelector('.inputProduct').value;
@@ -476,6 +477,12 @@ addToShoppingListBtn.addEventListener('click', function () {
 });
 
 //-------delete-------
-function deleteItemFromShoppingList(e) {
-  const id = docum
-}
+
+
+const asd = document.getElementById('shoppingList');
+console.log(asd)
+$("#shoppingList").on('click', 'button', function () {
+  const delItem = this.getAttribute('data-id');
+  console.log(delItem)
+
+})
