@@ -7,101 +7,94 @@
     <title>Work Schedule</title>
     <!-- <link rel="stylesheet" href="reset.css" /> -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/4626746004.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4626746004.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <!-- <button id="asd">Append</button> -->
-
-    <!-- <div class="red"></div> -->
     <div class="container">
-      <div class="date">
+      <div class="dateTop">
         <p id="dayNames"></p>
-        <button class="shopping btn"><i class="fa-brands fab fa-shopify"></i></button>
-        <button class="working btn none"><i class="fa-solid fas fa-briefcase"></i></button>
         <p id="date2"></p>
+        <button class="shoppingBtn btn">
+          <i class="fa-brands fab fa-shopify"></i>
+        </button>
+        <button class="workingBtn btn none">
+          <i class="fa-solid fas fa-briefcase"></i>
+        </button>
       </div>
-      <div class="buttons">
-        <button class="add btn">Add day</button>
-      </div>
+
+      <button class="addDayBtn btn">Add day</button>
+
       <div id="background" class="none">
         <div id="editing" class="">
           <form action="" method="post" id="editForm">
-            <table>
-              <tr>
-                <td colspan="2" class="">
-                  <input type="date" id="editDate" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select name="" id="editWifeStart">
-                    <option value="0">Start</option>
-                    <option value="07">07:00</option>
-                    <option value="08">08:00</option>
-                    <option value="09">09:00</option>
-                    <option value="10">10:00</option>
-                    <option value="11">11:00</option>
-                    <option value="12">12:00</option>
-                    <option value="13">13:00</option>
-                    <option value="14">14:00</option>
-                    <option value="15">15:00</option>
-                    <option value="1">REST DAY</option>
-                  </select>
-                </td>
-                <td>
-                  <select name="" id="editWifeEnd" class="">
-                    <option value="0">Finish</option>
-                    <option value="15">15:30</option>
-                    <option value="16">16:30</option>
-                    <option value="17">17:30</option>
-                    <option value="18">18:30</option>
-                    <option value="19">19:30</option>
-                    <option value="20">20:30</option>
-                    <option value="21">21:30</option>
-                    <option value="22">22:30</option>
-                    <option value="23">23:30</option>
-                    <option value="1">REST DAY</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select name="" id="editHusbandStart">
-                    <option value="0">Start</option>
-                    <option value="07">07:00</option>
-                    <option value="08">08:00</option>
-                    <option value="09">09:00</option>
-                    <option value="10">10:00</option>
-                    <option value="11">11:00</option>
-                    <option value="12">12:00</option>
-                    <option value="13">13:00</option>
-                    <option value="14">14:00</option>
-                    <option value="15">15:00</option>
-                    <option value="1">REST DAY</option>
-                  </select>
-                </td>
-                <td>
-                  <select name="" id="editHusbandEnd" class="">
-                    <option value="0">Finish</option>
-                    <option value="14">14:00</option>
-                    <option value="15">15:00</option>
-                    <option value="16">16:00</option>
-                    <option value="17">17:00</option>
-                    <option value="18">18:00</option>
-                    <option value="19">19:00</option>
-                    <option value="20">20:00</option>
-                    <option value="21">21:00</option>
-                    <option value="22">22:00</option>
-                    <option value="1">REST DAY</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <textarea name="" id="editNote" cols="23" rows="5"></textarea>
-                </td>
-              </tr>
-            </table>
+            <div class="date">
+              <input type="date" id="editDate" />
+            </div>
+            <div class="wifeWorkingTime">
+              <select name="" id="editWifeStart">
+                <option value="0">Start</option>
+                <option value="07">07:00</option>
+                <option value="08">08:00</option>
+                <option value="09">09:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="1">REST DAY</option>
+              </select>
+
+              <select name="" id="editWifeEnd" class="">
+                <option value="0">Finish</option>
+                <option value="15">15:30</option>
+                <option value="16">16:30</option>
+                <option value="17">17:30</option>
+                <option value="18">18:30</option>
+                <option value="19">19:30</option>
+                <option value="20">20:30</option>
+                <option value="21">21:30</option>
+                <option value="22">22:30</option>
+                <option value="23">23:30</option>
+                <option value="1">REST DAY</option>
+              </select>
+            </div>
+            <div class="husbandWorkingTime">
+              <select name="" id="editHusbandStart">
+                <option value="0">Start</option>
+                <option value="07">07:00</option>
+                <option value="08">08:00</option>
+                <option value="09">09:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="1">REST DAY</option>
+              </select>
+
+              <select name="" id="editHusbandEnd" class="">
+                <option value="0">Finish</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+                <option value="21">21:00</option>
+                <option value="22">22:00</option>
+                <option value="1">REST DAY</option>
+              </select>
+            </div>
+            <div class="textarea">
+              <textarea name="" id="editNote" cols="20" rows="5"></textarea>
+            </div>
+
             <div class="buttons2">
               <button type="submit" class="deleteBtn btn">Delete</button>
               <button type="button" class="cancelEditDayBtn btn">Cancel</button>
@@ -112,97 +105,83 @@
       </div>
       <div class="userInterface none">
         <form action="" method="post" id="form">
-          <table>
-            <tr>
-              <td class="">Date</td>
-              <td colspan="2" class=""><input type="date" id="date" /></td>
-            </tr>
+          <div class="date">
+            <input type="date" id="date" />
+          </div>
+          <div class="wifeWorkingTime">
+            <select name="" id="wifeStart">
+              <option value="0">Start</option>
+              <option value="07">07:00</option>
+              <option value="08">08:00</option>
+              <option value="09">09:00</option>
+              <option value="10">10:00</option>
+              <option value="11">11:00</option>
+              <option value="12">12:00</option>
+              <option value="13">13:00</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="1">REST DAY</option>
+            </select>
 
-            <tr>
-              <td>Wife</td>
-              <td>
-                <select name="" id="wifeStart">
-                  <option value="0">Start</option>
-                  <option value="07">07:00</option>
-                  <option value="08">08:00</option>
-                  <option value="09">09:00</option>
-                  <option value="10">10:00</option>
-                  <option value="11">11:00</option>
-                  <option value="12">12:00</option>
-                  <option value="13">13:00</option>
-                  <option value="14">14:00</option>
-                  <option value="15">15:00</option>
-                  <option value="1">REST DAY</option>
-                </select>
-              </td>
-              <td>
-                <select name="" id="wifeEnd" class="">
-                  <option value="0">Finish</option>
-                  <option value="15">15:30</option>
-                  <option value="16">16:30</option>
-                  <option value="17">17:30</option>
-                  <option value="18">18:30</option>
-                  <option value="19">19:30</option>
-                  <option value="20">20:30</option>
-                  <option value="21">21:30</option>
-                  <option value="22">22:30</option>
-                  <option value="23">23:30</option>
-                  <option value="1">REST DAY</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>Husband</td>
-              <td>
-                <select name="" id="husbandStart">
-                  <option value="0">Start</option>
-                  <option value="07">07:00</option>
-                  <option value="08">08:00</option>
-                  <option value="09">09:00</option>
-                  <option value="10">10:00</option>
-                  <option value="11">11:00</option>
-                  <option value="12">12:00</option>
-                  <option value="13">13:00</option>
-                  <option value="14">14:00</option>
-                  <option value="15">15:00</option>
-                  <option value="1">REST DAY</option>
-                </select>
-              </td>
-              <td>
-                <select name="" id="husbandEnd" class="">
-                  <option value="0">Finish</option>
-                  <option value="14">14:00</option>
-                  <option value="15">15:00</option>
-                  <option value="16">16:00</option>
-                  <option value="17">17:00</option>
-                  <option value="18">18:00</option>
-                  <option value="19">19:00</option>
-                  <option value="20">20:00</option>
-                  <option value="21">21:00</option>
-                  <option value="22">22:00</option>
-                  <option value="1">REST DAY</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td class="">Note</td>
-              <td colspan="2">
-                <textarea name="" id="note" cols="23" rows="5"></textarea>
-              </td>
-            </tr>
-          </table>
-          <button type="submit" class="saveNewDayBtn btn">Add New day</button>
+            <select name="" id="wifeEnd" class="">
+              <option value="0">Finish</option>
+              <option value="15">15:30</option>
+              <option value="16">16:30</option>
+              <option value="17">17:30</option>
+              <option value="18">18:30</option>
+              <option value="19">19:30</option>
+              <option value="20">20:30</option>
+              <option value="21">21:30</option>
+              <option value="22">22:30</option>
+              <option value="23">23:30</option>
+              <option value="1">REST DAY</option>
+            </select>
+          </div>
+          <div class="husbandWorkingTime">
+            <select name="" id="husbandStart">
+              <option value="0">Start</option>
+              <option value="07">07:00</option>
+              <option value="08">08:00</option>
+              <option value="09">09:00</option>
+              <option value="10">10:00</option>
+              <option value="11">11:00</option>
+              <option value="12">12:00</option>
+              <option value="13">13:00</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="1">REST DAY</option>
+            </select>
+
+            <select name="" id="husbandEnd" class="">
+              <option value="0">Finish</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="16">16:00</option>
+              <option value="17">17:00</option>
+              <option value="18">18:00</option>
+              <option value="19">19:00</option>
+              <option value="20">20:00</option>
+              <option value="21">21:00</option>
+              <option value="22">22:00</option>
+              <option value="1">REST DAY</option>
+            </select>
+          </div>
+          <div class="textarea">
+            <textarea name="" id="note" cols="20" rows="5"></textarea>
+          </div>
+          <div class="saveNewDay">
+            <button type="submit" class="saveNewDayBtn btn">Add New day</button>
+          </div>
         </form>
       </div>
 
       <div id="schedule"></div>
       <div class="shoppingList none">
         <div>
-          <input class="inputProduct" name="product" type="text">
+          <input class="inputProduct" name="product" type="text" />
           <button type="button" class="addToShoppingListBtn">Add</button>
         </div>
-        <ul id="shoppingList">
-        </ul>
+        <ul id="shoppingList"></ul>
       </div>
     </div>
     <script

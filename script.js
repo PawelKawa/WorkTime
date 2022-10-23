@@ -22,7 +22,7 @@ date.append(myDateFormatted);
 
 //--------------------------two main buttons at top --------------
 
-const addDay = document.querySelector('.add');
+const addDay = document.querySelector('.addDayBtn');
 addDay.addEventListener('click', function () {
   let userInterface = document.querySelector('.userInterface');
   userInterface.classList.toggle('none');
@@ -225,10 +225,13 @@ const newDay = (
   const div3 = document.createElement('div');
   const inDiv3 = document.createTextNode(`6 9 12 15 18 21 24`);
   div3.style.textAlignLast = 'justify';
+  div3.classList.add('scale');
   div3.append(inDiv3);
 
   const notka = document.createElement('p');
   const inNotka = document.createTextNode(note);
+  notka.classList.add('note');
+
   notka.append(inNotka);
 
   fieldset.append(legend, div3, div, div2, notka);
@@ -407,8 +410,8 @@ function updateDay(
 
 //-----------------shopping / working------------------
 getShoppingList();
-const shoppingBtn = document.querySelector('.shopping');
-const workingBtn = document.querySelector('.working');
+const shoppingBtn = document.querySelector('.shoppingBtn');
+const workingBtn = document.querySelector('.workingBtn');
 const shoppingList = document.querySelector('.shoppingList');
 
 shoppingBtn.addEventListener('click', function () {
@@ -417,6 +420,9 @@ shoppingBtn.addEventListener('click', function () {
   addDay.classList.add('none');
   schedule.classList.add('none');
   shoppingList.classList.remove('none');
+  document.querySelector('.userInterface').classList.add('none');
+  
+  
 });
 
 workingBtn.addEventListener('click', function () {
@@ -461,6 +467,8 @@ function addToShoppingList(item) {
     dataType: 'json',
     success: function () {
       getShoppingList();
+      document.querySelector('.inputProduct').value = '';
+
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);

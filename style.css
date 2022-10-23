@@ -11,22 +11,19 @@ body {
     background-color: #666;
 }
 
-.date{
+.none{
+    display: none;
+    
+}
+
+.dateTop{
     display: flex;
     justify-content: space-between;
  }
 
- .buttons2{
-    display: flex;
-    justify-content: space-around;
- }
-
- .saveNewDayBtn{
-    margin-left: 50%;
- }
- .date>p{
-    margin: 10px 0;
-    font-size: 2rem;
+ .dateTop p{
+    margin: 1rem 0;
+    font-size: 2.5rem;
  }
 
 .container{
@@ -36,71 +33,41 @@ body {
     padding: 1rem;
 }
 
-.userInterface{
-    background: linear-gradient(#e3f6f5, #bae8e8);
-    box-shadow: 5px 5px #aaa;
-    border-radius: 5px;
-    margin-bottom: 2rem;
-}
-.shoppingDelBtn{
-    margin-right: 1rem;
-}
-table{
-    margin: 0 auto;
-    /* border-collapse: separate; */
-    border-spacing: 0 1em;
-}
-
-td, textarea{
-    font-size: 1.5rem;
-}
-textarea{
-    margin: 0.5rem 1rem;
-}
-
-select, input{
-    font-size: 1.5rem;
-    margin: 0.5rem 1rem;
-}
-
-.saveNewDayBtn{
-    padding: 5px;
-    width: 13rem;
-}
-
 .btn{
     cursor: pointer;
-    margin-bottom: 10px;
     font-size: 1.5rem;
     padding: 0.5rem;
 }
 
-.tools{
-    display: flex;
-    justify-content: space-between;
+.shoppingBtn, .workingBtn{
+    background-color: hsla(220, 100%, 60%, 1);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: none;
 }
-.none{
-    display: none;
-}
-#background{
-    position: fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 1;
 
+.shoppingBtn:hover, .workingBtn:hover{
+    background-color: hsla(220, 100%, 50%, 1);
 }
-svg{
-    width: 1rem;
-    height: 1rem;
+
+.shoppingBtn:active, .workingBtn:active{
+    transform: scale(.8);
 }
+
+i{
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+}
+
+
+
 fieldset{
     position: relative;
     background-color: #e3f6f5;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     border-radius: 10px;
 }
 
@@ -113,123 +80,131 @@ fieldset :nth-child(5){
 }
 
 legend{
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #272343;
     background-color: #bae8e8;
     border-radius: 9px;
     padding: 0.2rem;
 }
 
-.wife{
+.scale, .note {
+    font-size: 2rem;
+}
 
+.wife, .husband{
+    font-size: 1.6rem;
+}
+
+
+/* add new day */
+
+.addDayBtn, .saveNewDayBtn {
+    background-color: hsl(135, 50%, 50%);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px hsl(100, 0%, 50%);
+    color: hsl(0, 0%, 100%);
+    margin: 1rem 0;
+}
+
+.addDayBtn:active{
+    transform: scale(0.95);
+}
+
+.addDayBtn:hover, .saveNewDayBtn:hover{
+    background-color: hsl(135, 50%, 40%);
+}
+
+.userInterface{
+    background: linear-gradient(#e3f6f5, #bae8e8);
+    border-radius: 5px;
+}
+
+.date{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.wifeWorkingTime, .husbandWorkingTime{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+.wifeWorkingTime{
+    background-color: pink;
+}
+.husbandWorkingTime{
+    background-color: royalblue;
+}
+
+select, input{
+    font-size: 2rem;
+}
+
+input{
+    margin: 1rem 0;
+}
+
+.textarea{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+textarea{
+    padding: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.saveNewDay{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#background{
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1;
+}
+
+
+
+
+
+.wife{
     background-color: pink;
 }
 .husband{
-
     background-color: royalblue;
 }
 
 #editing{
-    background: linear-gradient(#e3f6f5, #bae8e8);
-    border-radius: 10px;
-    box-shadow: 5px 5px #aaa;
     position: fixed;
-    top: 50%;
     left: 50%;
+    top: 50%;
     z-index: 1;
+    border-radius: 10px;
+    background: linear-gradient(#e3f6f5, #bae8e8);
     transform: translate(-50%, -50%);
+    box-shadow: 5px 5px #aaa;
 }
-
-
-.add, .saveNewDayBtn {
-    border: none;
-    border-radius: 5px;
-    color: hsl(0, 0%, 100%);
-    background-color: hsl(135, 50%, 50%);
-    box-shadow: 2px 2px hsl(100, 0%, 50%)
-
-}
-
-.add:active{
-    transform: scale(0.95);
-}
-
-.add:hover, .saveNewDayBtn:hover{
-    background-color: hsl(135, 50%, 40%);
-}
-
-.shopping, .working{
-    font-size: 2rem;
-    padding: 0 1rem;
-    border: 2px solid #0c1596;
-    border-radius: 5px;
-    color: #F8F8F8;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px -2px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 2px rgba(255, 255, 255, 0.8) inset;
-    background: rgb(17, 20, 221);
-    background: linear-gradient(rgb(17, 37, 221), #0e68bc);
-}
-
-.shopping:hover, .working:hover{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
-    background: rgb(17, 20, 221);
-    background: linear-gradient(rgb(4, 21, 172), #024b8f);
-    border-color: #050c74;
-}
-.shopping:active, .working:active{
-    transform: scale(0.95);
-
-}
-.deleteBtn{
-    border: 2px solid #bd0000;
-    border-radius: 5px;
-    color: #F8F8F8;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px -2px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 2px rgba(255, 255, 255, 0.8) inset;
-    background: rgb(221, 17, 17);
-    background: linear-gradient(rgb(221, 17, 17), #990202);
-}
-
-.deleteBtn:hover{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
-    background: rgb(221, 17, 17);
-    background: linear-gradient(rgb(172, 4, 4), #530202);
-    border-color: #3a0101;
-}
-
-
-
-.saveEditDayBtn{
-    border: 2px solid #bdb000;
-    border-radius: 5px;
-    color: #F8F8F8;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px -2px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 2px rgba(255, 255, 255, 0.8) inset;
-    background: rgb(221, 190, 17);
-    background: linear-gradient(rgb(221, 207, 17), #8cb302);
-}
-
-.saveEditDayBtn:hover{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
-    background: rgb(221, 190, 17);
-    background: linear-gradient(rgb(207, 194, 7), #6c8a01);
-    border-color: #9c9200;
-}
-
-
-.cancelEditDayBtn{
-    border: 2px solid #585858;
-    border-radius: 5px;
-    color: #F8F8F8;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), 0px -2px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 2px rgba(255, 255, 255, 0.8) inset;
-    background: #646464;
-    background: linear-gradient(rgb(117, 117, 117), #444444);
-}
-
-.cancelEditDayBtn:hover{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
-    background: #535353;
-    background: linear-gradient(rgb(90, 90, 90), #383838);
-    border-color: #585858;
-}
-
 
 #shoppingList>li{
     list-style: none;
