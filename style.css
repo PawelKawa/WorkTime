@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-box
 
 html{
     font-size: 10px;
@@ -12,7 +11,7 @@ body {
     background-color: #666;
 }
 
-.date, .buttons{
+.date{
     display: flex;
     justify-content: space-between;
  }
@@ -93,6 +92,10 @@ select, input{
     z-index: 1;
 
 }
+svg{
+    width: 1rem;
+    height: 1rem;
+}
 fieldset{
     position: relative;
     background-color: #e3f6f5;
@@ -155,7 +158,9 @@ legend{
     background-color: hsl(135, 50%, 40%);
 }
 
-.shopping{
+.shopping, .working{
+    font-size: 2rem;
+    padding: 0 1rem;
     border: 2px solid #0c1596;
     border-radius: 5px;
     color: #F8F8F8;
@@ -164,13 +169,13 @@ legend{
     background: linear-gradient(rgb(17, 37, 221), #0e68bc);
 }
 
-.shopping:hover{
+.shopping:hover, .working:hover{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1), 0px -2px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 2px rgba(255, 255, 255, 0.4) inset;
     background: rgb(17, 20, 221);
     background: linear-gradient(rgb(4, 21, 172), #024b8f);
     border-color: #050c74;
 }
-.shopping:active{
+.shopping:active, .working:active{
     transform: scale(0.95);
 
 }
