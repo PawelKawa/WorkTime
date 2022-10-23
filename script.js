@@ -435,7 +435,7 @@ function getShoppingList() {
     dataType: 'json',
     success: function (results) {
       let data = results['data'];
-      console.log(data);
+      // console.log(data);
       let shoppingList = [];
       for (let i = 0; i < data.length; i++) {
         // console.log(data[i])
@@ -476,13 +476,28 @@ addToShoppingListBtn.addEventListener('click', function () {
   addToShoppingList(input);
 });
 
-//-------delete-------
+//-------delete item-------
 
 
-const asd = document.getElementById('shoppingList');
-console.log(asd)
 $("#shoppingList").on('click', 'button', function () {
   const delItem = this.getAttribute('data-id');
   console.log(delItem)
-
+  deleteItem(delItem);
 })
+
+const deleteItem = (itemId) => {
+  $.ajax({
+    type: 'POST',
+    url: 'php/deleteItem.php',
+    data: { id: itemId },
+    dataType: 'json',
+    success: function () {
+      getShoppingList();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
