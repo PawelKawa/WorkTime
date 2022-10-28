@@ -3,7 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+:root{
+    --husband: hsl(187, 61%, 35%);
+    --wife :hsl(350, 100%, 88%);
+    --darker: hsl(180, 50%, 82%);
+    --lighter: hsl(177, 51%, 93%);
+}
 html{
     font-size: 10px;
 }
@@ -40,7 +45,7 @@ body {
 }
 
 .shoppingBtn, .workingBtn{
-    background-color: hsla(220, 100%, 60%, 1);
+    background-color: var(--lighter);
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
@@ -48,7 +53,7 @@ body {
 }
 
 .shoppingBtn:hover, .workingBtn:hover{
-    background-color: hsla(220, 100%, 50%, 1);
+    background-color: var(--darker);
 }
 
 .shoppingBtn:active, .workingBtn:active{
@@ -65,10 +70,11 @@ i{
 
 fieldset{
     position: relative;
-    background-color: #e3f6f5;
+    background-color: var(--lighter);
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 10px;
+    max-width: 600px ;
 }
 
 fieldset:hover{
@@ -82,7 +88,7 @@ fieldset :nth-child(5){
 legend{
     font-size: 2rem;
     color: #272343;
-    background-color: #bae8e8;
+    background-color: var(--darker);
     border-radius: 9px;
     padding: 0.2rem;
 }
@@ -116,7 +122,7 @@ legend{
 }
 
 .userInterface{
-    background: linear-gradient(#e3f6f5, #bae8e8);
+    background: linear-gradient(var(--darker), var(--lighter));
     border-radius: 5px;
 }
 
@@ -133,10 +139,10 @@ legend{
     padding: 1rem 0;
 }
 .wifeWorkingTime{
-    background-color: pink;
+    background-color: var(--wife);
 }
 .husbandWorkingTime{
-    background-color: royalblue;
+    background-color: var(--husband);
 }
 
 select, input{
@@ -156,6 +162,7 @@ input{
 textarea{
     padding: 0.5rem;
     font-size: 1.8rem;
+    word-break: break-all;
 }
 
 .saveNewDay{
@@ -189,13 +196,15 @@ textarea{
 
 
 .wife{
-    background-color: pink;
+    background-color: var(--wife);
 }
 .husband{
-    background-color: royalblue;
+    background-color: var(--husband);
+    color: white;
 }
 
 #editing{
+    max-width: 600px;
     position: fixed;
     left: 50%;
     top: 50%;
