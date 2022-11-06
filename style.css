@@ -8,6 +8,7 @@
   --wife: hsl(350, 100%, 88%);
   --darker: hsl(180, 50%, 82%);
   --lighter: hsl(177, 51%, 93%);
+  --pinkBtn: hsl(350, 100%, 95%);
 }
 html {
   font-size: 10px;
@@ -85,6 +86,7 @@ fieldset {
   margin: 3rem 0;
   border-radius: 10px;
   max-width: 600px;
+  border: none;
 }
 
 fieldset:hover {
@@ -100,7 +102,7 @@ legend {
   color: #272343;
   background-color: var(--darker);
   border-radius: 9px;
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
 }
 
 .scale,
@@ -117,16 +119,17 @@ legend {
 
 .addDayBtn,
 .saveNewDayBtn {
-  background-color: hsl(350, 100%, 95%);
+  background-color: var(--pinkBtn);
   border-radius: 5px;
   border: none;
-  margin: 2rem 0;
+  margin-top: 3rem;
+  font-size: 2rem;
 }
 
 
 .saveNewDayBtn{
     border: 1px solid grey;
-    margin-top: 1rem;
+    margin: 1rem;
 }
 
 .addDayBtn:active {
@@ -170,14 +173,10 @@ input {
   font-family: 'PT Sans', sans-serif;
 }
 
-input {
-  margin: 1rem 0;
-}
-
 .textarea {
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
+  margin-top: 1rem;
   padding: 0 1rem;
 }
 
@@ -229,20 +228,53 @@ textarea {
 
 #shoppingList > li {
   list-style: none;
-  font-size: 2rem;
+  font-size: 3rem;
+  border-radius: 5px;
+  margin: 1rem 0;
 }
 #shoppingList :nth-child(odd) {
-  background-color: hsl(0, 0%, 80%);
+    background-color: var(--lighter);
 }
 #shoppingList :nth-child(even) {
-  background-color: hsl(0, 0%, 60%);
+    background-color: var(--darker);
+}
+
+.inputShopping{
+    margin: 2rem 0;
+}
+.inputProduct{
+    border-radius: 5px;
+    border: none;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+}
+
+.addToShoppingListBtn{
+    background-color: var(--pinkBtn);
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    margin-left: 1rem;
+    font-size: 2rem;
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+}
+.addToShoppingListBtn:hover{
+    background-color: var(--wife);
 }
 
 .shoppingDelBtn {
-  background-color: hsl(9, 100%, 50%) !important;
-  padding: 0.5rem;
-  margin: 0.5rem;
+    color: #fff;
+  background-color: var(--husband) !important;
+  padding: 1rem;
+  margin:0 1rem 0 0.5rem ;
+  position: relative;
+  top: -4px;
   font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .buttons2 {
@@ -257,4 +289,10 @@ textarea {
   border: 1px solid grey;
   padding: 1rem;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 383px) {
+    .inputProduct{
+        width: 210px;
+    }
 }
