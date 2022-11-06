@@ -1,234 +1,260 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-:root{
-    --husband: hsl(187, 61%, 35%);
-    --wife :hsl(350, 100%, 88%);
-    --darker: hsl(180, 50%, 82%);
-    --lighter: hsl(177, 51%, 93%);
+:root {
+  --husband: hsl(187, 61%, 35%);
+  --wife: hsl(350, 100%, 88%);
+  --darker: hsl(180, 50%, 82%);
+  --lighter: hsl(177, 51%, 93%);
 }
-html{
-    font-size: 10px;
+html {
+  font-size: 10px;
+  font-family: 'PT Sans', sans-serif;
 }
 body {
-    background-color: #666;
+  background-color: #999;
 }
 
-.none{
-    display: none;
-    
+.none {
+  display: none;
 }
 
-.dateTop{
-    display: flex;
-    justify-content: space-between;
- }
-
- .dateTop p{
-    margin: 1rem 0;
-    font-size: 2.5rem;
- }
-
-.container{
-    margin:0 auto;
-    max-width: 600px;
-    position: relative;
-    padding: 1rem;
+.dateTop {
+  display: flex;
+  justify-content: space-between;
 }
 
-.btn{
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-}
-
-.shoppingBtn, .workingBtn{
-    background-color: var(--lighter);
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    border: none;
-}
-
-.shoppingBtn:hover, .workingBtn:hover{
-    background-color: var(--darker);
-}
-
-.shoppingBtn:active, .workingBtn:active{
-    transform: scale(.8);
-}
-
-i{
-    width: 4rem;
-    height: 4rem;
-    font-size: 4rem;
-}
-
-
-
-fieldset{
-    position: relative;
-    background-color: var(--lighter);
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-    max-width: 600px ;
-}
-
-fieldset:hover{
-    cursor: pointer;
-}
-
-fieldset :nth-child(5){
-    margin-top: 1rem;
-}
-
-legend{
-    font-size: 2rem;
-    color: #272343;
+.dateTop> :nth-child(1){
     background-color: var(--darker);
     border-radius: 9px;
-    padding: 0.2rem;
+}
+.onlyDate{
+    display: flex;
 }
 
-.scale, .note {
-    font-size: 2rem;
+
+.dateTop p {
+  margin: 1rem 0.5rem;
+  font-size: 2.5rem;
 }
 
-.wife, .husband{
-    font-size: 1.6rem;
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  position: relative;
+  padding: 1rem;
 }
 
+.btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.shoppingBtn,
+.workingBtn {
+  background-color: var(--lighter);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.shoppingBtn:hover,
+.workingBtn:hover {
+  background-color: var(--darker);
+}
+
+.shoppingBtn:active,
+.workingBtn:active {
+  transform: scale(0.8);
+}
+
+i {
+  width: 3rem;
+  height: 3rem;
+  font-size: 3rem;
+}
+
+fieldset {
+  position: relative;
+  background-color: var(--lighter);
+  padding: 1rem;
+  margin: 3rem 0;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+fieldset:hover {
+  cursor: pointer;
+}
+
+fieldset :nth-child(5) {
+  margin-top: 2rem;
+}
+
+legend {
+  font-size: 2rem;
+  color: #272343;
+  background-color: var(--darker);
+  border-radius: 9px;
+  padding: 0.2rem;
+}
+
+.scale,
+.note {
+  font-size: 2rem;
+}
+
+.wife,
+.husband {
+  font-size: 1.6rem;
+}
 
 /* add new day */
 
-.addDayBtn, .saveNewDayBtn {
-    background-color: hsl(135, 50%, 50%);
-    border-radius: 5px;
-    border: none;
-    box-shadow: 2px 2px hsl(100, 0%, 50%);
-    color: hsl(0, 0%, 100%);
-    margin: 1rem 0;
-}
-
-.addDayBtn:active{
-    transform: scale(0.95);
-}
-
-.addDayBtn:hover, .saveNewDayBtn:hover{
-    background-color: hsl(135, 50%, 40%);
-}
-
-.userInterface{
-    background: linear-gradient(var(--darker), var(--lighter));
-    border-radius: 5px;
-}
-
-.date{
-    margin: 1rem 0;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.wifeWorkingTime, .husbandWorkingTime{
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem 0;
-}
-.wifeWorkingTime{
-    background-color: var(--wife);
-}
-.husbandWorkingTime{
-    background-color: var(--husband);
-}
-
-select, input{
-    font-size: 2rem;
-}
-
-input{
-    margin: 1rem 0;
-}
-
-.textarea{
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-}
-
-textarea{
-    padding: 0.5rem;
-    font-size: 1.8rem;
-    word-break: break-all;
-}
-
-.saveNewDay{
-    display: flex;
-    justify-content: center;
+.addDayBtn,
+.saveNewDayBtn {
+  background-color: hsl(350, 100%, 95%);
+  border-radius: 5px;
+  border: none;
+  margin: 2rem 0;
 }
 
 
+.saveNewDayBtn{
+    border: 1px solid grey;
+    margin-top: 1rem;
+}
 
+.addDayBtn:active {
+  transform: scale(0.95);
+}
 
+.addDayBtn:hover,
+.saveNewDayBtn:hover {
+  background-color: var(--wife)
+}
 
+.userInterface {
+  background: linear-gradient(var(--darker), var(--lighter));
+  border-radius: 5px;
+  margin: 3rem 0;
+}
 
+.date {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
 
+.wifeWorkingTime,
+.husbandWorkingTime {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+.wifeWorkingTime {
+  background-color: var(--wife);
+}
+.husbandWorkingTime {
+  background-color: var(--husband);
+}
 
+select,
+input {
+  font-size: 2rem;
+  font-family: 'PT Sans', sans-serif;
+}
 
+input {
+  margin: 1rem 0;
+}
 
+.textarea {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
 
+textarea {
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  word-break: break-all;
+}
 
-#background{
-    position: fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 1;
+.saveNewDay {
+  display: flex;
+  justify-content: center;
+}
+
+.cancelEditDayBtn, .cancelDayBtn {
+  position: relative;
+  right: 1rem;
+  top: 1rem;
+  padding: 1rem;
+  border: 1px solid grey;
+  background-color: #fff;
+  float: right;
 }
 
 
 
-
-
-.wife{
-    background-color: var(--wife);
-}
-.husband{
-    background-color: var(--husband);
-    color: white;
-}
-
-#editing{
-    max-width: 600px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    border-radius: 10px;
-    background: linear-gradient(#e3f6f5, #bae8e8);
-    transform: translate(-50%, -50%);
-    box-shadow: 5px 5px #aaa;
+#background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 1;
 }
 
-#shoppingList>li{
-    list-style: none;
-    font-size: 2rem;
+.wife {
+  background-color: var(--wife);
 }
-#shoppingList :nth-child(odd){
-    background-color: hsl(0, 0%, 80%);
-}
-#shoppingList :nth-child(even){
-    background-color: hsl(0, 0%, 60%);
+.husband {
+  background-color: var(--husband);
+  color: white;
 }
 
-.shoppingDelBtn{
-    background-color: hsl(9, 100%, 50%) !important;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    font-weight: bold;
+#editing {
+  border-radius: 10px;
+  background: linear-gradient(#e3f6f5, #bae8e8);
+}
+
+#shoppingList > li {
+  list-style: none;
+  font-size: 2rem;
+}
+#shoppingList :nth-child(odd) {
+  background-color: hsl(0, 0%, 80%);
+}
+#shoppingList :nth-child(even) {
+  background-color: hsl(0, 0%, 60%);
+}
+
+.shoppingDelBtn {
+  background-color: hsl(9, 100%, 50%) !important;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.buttons2 {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
+.deleteBtn,
+.saveEditDayBtn {
+  background-color: #fff;
+  border: 1px solid grey;
+  padding: 1rem;
+  border-radius: 5px;
 }
