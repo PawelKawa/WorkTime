@@ -26,6 +26,7 @@ const addDay = document.querySelector('.addDayBtn');
 addDay.addEventListener('click', function () {
   let userInterface = document.querySelector('.userInterface');
   userInterface.classList.toggle('none');
+  addDay.classList.add('none');
 });
 
 //------------get all days-----------------------------------------------
@@ -258,14 +259,30 @@ deleteBtn.addEventListener('click', function (e) {
   }
 });
 
-//---cancel button---
+//---close ( X ) button---
 
-const cancelBtn = document.querySelector('.cancelEditDayBtn');
-cancelBtn.addEventListener('click', function () {
+const cancelEditBtn = document.querySelector('.cancelEditDayBtn');
+cancelEditBtn.addEventListener('click', function () {
   const editSHow = document.getElementById('background');
   editSHow.classList.add('none');
-  console.log('cancel');
 });
+
+const cancelDaybtn = document.querySelector('.cancelDayBtn');
+cancelDaybtn.addEventListener('click', function () {
+  let userInterface = document.querySelector('.userInterface');
+  userInterface.classList.add('none');
+  addDay.classList.remove('none');
+
+})
+
+const modal = document.getElementById('background');
+window.onclick = function (event) {
+  if (event.target == modal) {
+  const editSHow = document.getElementById('background');
+  editSHow.classList.add('none');
+  }
+}
+
 
 //-----save edited day button --------
 
@@ -283,6 +300,7 @@ $('#editForm').on('submit', function (e) {
     document.getElementById('editHusbandEnd').selectedOptions[0].text;
   const note = document.getElementById('editNote').value;
   document.getElementById('background').classList.add('none');
+
   updateDay(id, date, wifeStart, wifeEnd, husbandStart, husbandEnd, note);
 });
 
@@ -421,8 +439,6 @@ shoppingBtn.addEventListener('click', function () {
   schedule.classList.add('none');
   shoppingList.classList.remove('none');
   document.querySelector('.userInterface').classList.add('none');
-  
-  
 });
 
 workingBtn.addEventListener('click', function () {
@@ -468,7 +484,6 @@ function addToShoppingList(item) {
     success: function () {
       getShoppingList();
       document.querySelector('.inputProduct').value = '';
-
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);
@@ -486,12 +501,11 @@ addToShoppingListBtn.addEventListener('click', function () {
 
 //-------delete item-------
 
-
-$("#shoppingList").on('click', 'button', function () {
+$('#shoppingList').on('click', 'button', function () {
   const delItem = this.getAttribute('data-id');
-  console.log(delItem)
+  console.log(delItem);
   deleteItem(delItem);
-})
+});
 
 const deleteItem = (itemId) => {
   $.ajax({
