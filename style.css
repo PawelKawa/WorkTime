@@ -281,6 +281,7 @@ textarea {
   display: flex;
   justify-content: space-around;
   padding-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .deleteBtn,
