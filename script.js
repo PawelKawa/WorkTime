@@ -161,6 +161,7 @@ function addNewDay(date, wifeStart, wifeEnd, husbandStart, husbandEnd, note) {
     success: function () {
       clearSchedule();
       getAll();
+      addDay.classList.remove('none');
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);
@@ -504,7 +505,6 @@ addToShoppingListBtn.addEventListener('submit', function (e) {
 
 $('#shoppingList').on('click', 'button', function () {
   const delItem = this.getAttribute('data-id');
-  console.log(delItem);
   deleteItem(delItem);
 });
 
