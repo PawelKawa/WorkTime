@@ -1,12 +1,14 @@
 # WorkTime
 
 Single page app, that allows me and my wife to see our work schedules.
-There is a shopping list in progress and probably more features in the future :)
-Shopping List is working now, looking for more features.
+Some features in the feautre:
+- ~~shopping list~~
+- while offline still able to modify data and when back online update every change.
+- looking for next features
 
 ## The application has been developed using the following:
 
-- HTML / CSS / JavaScript 
+- HTML / CSS / JavaScript (jQuery)
 - PHP (JSON data interchange)
 - MSQL (Create, Read, Update and Delete).
 
